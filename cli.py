@@ -1,6 +1,6 @@
 import argparse
 
-from predictor import DepthEstimationModel
+from predictor import DepthEstimationModel  # asfdıksadf
 
 
 def main():
