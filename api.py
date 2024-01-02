@@ -14,7 +14,7 @@ TEMP_FOLDER = "api_images"
 os.makedirs(TEMP_FOLDER, exist_ok=True)
 
 
-@app.post("/predict")
+@app.post("/predict")  # API Query Root
 async def predict(file: UploadFile = File(...)):
     try:
         file_ext = os.path.splitext(file.filename)[1]
@@ -24,7 +24,9 @@ async def predict(file: UploadFile = File(...)):
         filename_base = str(uuid.uuid4())
         filename = filename_base + file_ext
         destination_path = os.path.join(TEMP_FOLDER, filename)
-        output_path = os.path.join(TEMP_FOLDER, "output" + filename_base + ".png")
+        output_path = os.path.join(
+            TEMP_FOLDER, "output" + filename_base + ".png"
+        )  # Our precedence is output in png format
 
         with open(destination_path, "wb") as image_data:
             image_data.write(file.file.read())
