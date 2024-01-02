@@ -1,48 +1,68 @@
 
-# Proje Başlığı
+# Depth-Estimation App
 
-Bu projenin ne yaptığı ve kimin için olduğu hakkında kısa bir açıklama
+End-to-end fundamental depth-estimation app 
 
 
-## Kullanım/Örnekler
+## Usage/Examples
+
+### CLI Usage
+
+Flow  can be arbitrarily change by interacting with the cli.py file
 
 ```bash
-import Component from 'benim-projem'
+usage: cli.py [-h] input_image output_image
 
-function App() {
-  return <Component />
-}
+Depth estimation using ZoeDepth.
+
+positional arguments:
+  input_image   Path to input image.
+  output_image  Path to output depth map.
+
+options:
+  -h, --help    show this help message and exit
+```
+### API Usage
+
+#### Bash Code to Redirecting API
+```
+uvicorn app:api
+
+uvicorn app:api --reload
 ```
 
-  
-## Yükleme 
+#### Local API Link
+```
+http://127.0.0.1:8041/predict
 
-benim-projem'i npm kullanarak yükleyin
+http://127.0.0.1:8041/docs
+```
+## Installation 
 
-```bash 
-  npm install my-project
-  cd my-project
+Install depth estimation project with pip
+
+```bash
+pip install -r requirements.txt
 ```
     
-## Ortam Değişkenleri
+## Environment Variables
 
-Bu projeyi çalıştırmak için aşağıdaki ortam değişkenlerini .env dosyanıza eklemeniz gerekecek
+To run this project, you will need to add the following environment variables to your .env file
 
-`API_KEY`
-
-`ANOTHER_API_KEY`
+`IMG_API_KEY`
 
   
-## Dağıtım
+## Deployment
 
-Bu projeyi dağıtmak için çalıştırın
+To deploy this project and run afterwards
 
 ```bash
-  npm run deploy
+docker build -t depth_estimation .
+docker run -d -p 8041:8041 depth_estimation
 ```
 
   
-## Lisans
+## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
