@@ -3,6 +3,8 @@ from PIL import Image
 
 from misc import colorize
 
+# Base model for depth estimation and recognition
+
 
 class DepthEstimationModel:
     def __init__(self) -> None:
